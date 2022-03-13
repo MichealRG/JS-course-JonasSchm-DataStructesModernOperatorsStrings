@@ -41,6 +41,10 @@ const restaurant = {
       `Order received ${this.starterMenu[startIndex]} and ${this.mainMenu[mainIndex]} will be deliver to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
 //Destructuring objects
@@ -93,3 +97,38 @@ console.log(i, j, k);
 
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r); //8,9,1
+
+//the spread operator (...)
+const arr2 = [7, 8, 9];
+const badNewArr = [1, 2, ...arr2];
+console.log(badNewArr); // [1,2,7,8,9]
+
+console.log(...badNewArr); // 1 2 7 8 9
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu); // [values of restaurant, Gnocci]
+
+//copy array - shallow copy
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//join 2 arrays
+const arrays = [...restaurant.mainMenu, ...restaurant.starterMenu];
+
+const nameJonas = 'Jonas';
+const letters = [...nameJonas, ' ', 'S.'];
+console.log(letters); //[ "J", "o", "n", "a", "s", " ", "S."]
+
+const ingredients = [
+  prompt("Let's make pasta, ing1:"),
+  prompt("Let's make pasta, ing2:"),
+  prompt("Let's make pasta, ing3:"),
+];
+restaurant.orderPasta(...ingredients);
+
+//objects
+const newRestaurant = { ...restaurant, founder: 'Giussepppi' };
+console.log(newRestaurant);
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'ROMA';
+console.log(restaurant);
+console.log(restaurantCopy);
