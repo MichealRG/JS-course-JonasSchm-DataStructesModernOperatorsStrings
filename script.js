@@ -30,8 +30,44 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery: function ({
+    startIndex = 1,
+    mainIndex = 0,
+    time = '22:00',
+    address,
+  }) {
+    console.log(
+      `Order received ${this.starterMenu[startIndex]} and ${this.mainMenu[mainIndex]} will be deliver to ${address} at ${time}`
+    );
+  },
 };
 
+//Destructuring objects
+const { name: restaurantName, openingHours, categories } = restaurant;
+console.log(restaurantName, openingHours, categories);
+
+const { menu = [], starterMenu: starters = [], mainMenu } = restaurant;
+console.log(menu, starters);
+
+let abc = 111;
+let bcd = 999;
+const obj = { abc: 23, bcd: 7, c: 14 };
+({ abc, bcd } = obj);
+
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del sole 32',
+  mainIndex: 2,
+  startIndex: 2,
+});
+
+//Destructuring arrays
 const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[0];
