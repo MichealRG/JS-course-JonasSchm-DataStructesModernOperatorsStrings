@@ -45,6 +45,11 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizza: function (mainIng, ...otherIngs) {
+    console.log(mainIng);
+    console.log(otherIngs);
+  },
 };
 
 //Destructuring objects
@@ -132,3 +137,32 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'ROMA';
 console.log(restaurant);
 console.log(restaurantCopy);
+
+//Rest pattern
+const [one, two, ...others] = [1, 2, 3, 4];
+console.log(one, two, others);
+
+const [pizza, , risottom, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risottom, otherFood);
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+//Rest Pattern functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let index = 0; index < numbers.length; index++) {
+    sum += numbers[index];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(2, 3, 7, 2);
+
+const xz = [23, 5, 7];
+add(...xz);
+
+restaurant.orderPizza('mushrroms', 'onion', 'olives', 'spinach');
