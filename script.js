@@ -166,3 +166,15 @@ const xz = [23, 5, 7];
 add(...xz);
 
 restaurant.orderPizza('mushrroms', 'onion', 'olives', 'spinach');
+
+//Short Circuiting  && ||
+console.log(3 || 'Jan'); //3
+console.log('' || 'Jan'); //Jan
+console.log(undefined || null); //null
+
+//Nullish Coalescing ??
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests); //10 <- bo 0 to falsy value
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect); //0
