@@ -178,3 +178,26 @@ const guests = restaurant.numGuests || 10;
 console.log(guests); //10 <- bo 0 to falsy value
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect); //0
+
+//Logical Assignment operator
+const rest1 = { name: 'Carpi', numGuests: 15 };
+const rest2 = { name: 'Carpi', owner: 'Antoni' };
+rest1.numGuests = rest1.numGuests || 10;
+rest2.numGuests = rest2.numGuests || 10;
+console.log(rest1);
+console.log(rest2);
+//Or assingment operator
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+console.log(rest1);
+console.log(rest2);
+//Nullish assingment operator
+const rest3 = { name: 'Panteo', owner: 'Antoni', numGuests: 0 };
+rest3.numGuests ??= 10;
+console.log(rest3);
+//AND assignment operator
+rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+console.log(rest1);
+console.log(rest2);
