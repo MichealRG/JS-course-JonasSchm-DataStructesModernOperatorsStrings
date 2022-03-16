@@ -60,3 +60,25 @@ console.log([...menu.entries()]);
 
 //enhanced objects literals
 console.log(openingHours);
+
+//optional chaining (?)
+if (restaurant.openingHours && restaurant.openingHours.Fri)
+  //old way to check is there prop available
+  console.log(restaurant.openingHours.Fri.open);
+
+console.log(restaurant.openingHours.mon?.open); //undefined
+console.log(restaurant.openingHours?.mon?.open); //undefined
+
+const days = ['Mond', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+for (const day of days) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//methods
+console.log(restaurant.order?.(0, 1) ?? 'Method doesnt exist');
+console.log(restaurant.orderRisooto?.(0, 1) ?? 'Method doesnt exist');
+//arrays
+const users = [{ name: 'Johnas', email: 'Johnas@io' }];
+console.log(users[0]?.name ?? 'User array empty');
