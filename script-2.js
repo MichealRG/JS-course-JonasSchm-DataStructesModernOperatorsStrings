@@ -99,3 +99,69 @@ for (const [key, { open, close }] of entries) {
   //destructure
   console.log(`${key}: we open at ${open} and close at ${close}`);
 }
+
+//coding chellange
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+console.log('CODING CHELLANGE 2');
+//1
+for (const [key, player] of game.scored.entries()) {
+  console.log(`Goal ${1 + key}: ${player}`);
+}
+//2
+let avgOdd = 0;
+for (const value of Object.values(game.odds)) {
+  avgOdd += value;
+}
+console.log(`Avg odds: ${avgOdd / Object.values(game.odds).length}`);
+//3
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+//4
+const scores = {};
+for (const player of game.scored) {
+  scores[player] = scores[player] ?? 0;
+  scores[player]++;
+}
+console.log(scores);
