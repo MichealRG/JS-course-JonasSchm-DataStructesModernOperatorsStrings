@@ -82,3 +82,20 @@ console.log(restaurant.orderRisooto?.(0, 1) ?? 'Method doesnt exist');
 //arrays
 const users = [{ name: 'Johnas', email: 'Johnas@io' }];
 console.log(users[0]?.name ?? 'User array empty');
+
+//loop over array
+for (const day of Object.keys(openingHours)) {
+  console.log(day); // Thu Fri Sat
+}
+for (const day of Object.values(openingHours)) {
+  console.log(day); // {} {} obikety
+}
+const entries = Object.entries(openingHours);
+console.log(entries);
+for (const x of entries) {
+  console.log(x);
+}
+for (const [key, { open, close }] of entries) {
+  //destructure
+  console.log(`${key}: we open at ${open} and close at ${close}`);
+}
