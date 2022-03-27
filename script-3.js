@@ -4,6 +4,22 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const weekDays = ['Mond', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+const openingHours = {
+  [weekDays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekDays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -98,3 +114,33 @@ rest.get([1, 2]); //undefined
 
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest);
+
+//map iterations
+const question = new Map([
+  ['question', 'What is the best programming lang?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JS'],
+  ['correct', 3],
+  [true, 'Correct!'],
+  [false, 'Try again'],
+]);
+console.log(question);
+
+console.log(Object.entries(openingHours));
+const horusMap = new Map(Object.entries(openingHours));
+
+console.log(horusMap);
+
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+const answer = Number(prompt('Your answer'));
+console.log(answer);
+console.log(question.get(question.get('correct') === answer));
+
+console.log([...question]); //array of arrays
+console.log(question.keys());
+console.log([...question.keys()]);
+console.log(question.values());
