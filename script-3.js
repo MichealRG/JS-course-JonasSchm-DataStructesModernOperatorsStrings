@@ -51,3 +51,19 @@ const restaurant = {
     console.log(otherIngs);
   },
 };
+
+//set
+const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta']);
+console.log(ordersSet);
+console.log(new Set('Jonas'));
+console.log(ordersSet.size);
+console.log(ordersSet.has('Bread'));
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.add('Garlic bread'));
+console.log(ordersSet);
+console.log(ordersSet.delete('Risotto'));
+for (const order of ordersSet) console.log(order);
+// console.log(ordersSet.clear()); //undefined
+// console.log(ordersSet); //Set[]
+
+console.log([...ordersSet]);
