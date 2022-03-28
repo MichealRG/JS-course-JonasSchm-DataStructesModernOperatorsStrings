@@ -144,3 +144,53 @@ console.log([...question]); //array of arrays
 console.log(question.keys());
 console.log([...question.keys()]);
 console.log(question.values());
+
+//coding chellange 3
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+//1
+const events = new Set([...gameEvents.values()]);
+console.log(events);
+const array = [...new Set([...gameEvents.values()])];
+console.log(array);
+
+//2
+gameEvents.delete(64);
+console.log(gameEvents);
+
+//3
+// console.log();
+// let amountOfEvents = new Map();
+// console.log(gameEvents.values());
+// for ([key, eventt] of gameEvents) {
+//   console.log(eventt);
+//   amountOfEvents.set(
+//     eventt,
+//     amountOfEvents.has(eventt) ? amountOfEvents.get(eventt) + 1 : 0
+//   );
+// }
+// console.log(amountOfEvents);
+console.log(`An event happend on avg, every ${90 / gameEvents.size} minutes`);
+const timeMeatch = [...gameEvents.keys()].pop();
+console.log(
+  `An event happend on avg, every ${timeMeatch / gameEvents.size} minutes`
+);
+
+//4
+for (const [key, ev] of gameEvents) {
+  console.log(
+    key <= 45 ? `First Half ${key}: ${ev}` : `Second Half ${key}: ${ev}`
+  );
+}
