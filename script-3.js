@@ -194,3 +194,35 @@ for (const [key, ev] of gameEvents) {
     key <= 45 ? `First Half ${key}: ${ev}` : `Second Half ${key}: ${ev}`
   );
 }
+
+//strings
+const airline = 'Tap Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+console.log('B737'.length);
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal')); //8
+console.log(airline.indexOf('portugal')); //-1
+
+console.log(airline.slice(4)); //to end of string
+console.log(airline.slice(4, 7)); //to 7 index
+console.log(airline.slice(0, airline.indexOf(' '))); //do spacji
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); //od ostatniej spacji do konca
+
+console.log(airline.slice(-2)); //al
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  //B | E middle seat
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('Middle SEAT!');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
