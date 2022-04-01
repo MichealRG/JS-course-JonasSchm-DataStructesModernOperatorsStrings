@@ -300,3 +300,38 @@ console.log(maskCredictCard(34234234234234));
 //repeat
 const message2 = 'Bad weather... All departures delayed...';
 console.log(message2.repeat(5));
+//coding chellange 4
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+const testArray = `    underscore_case
+  first_name
+    Some_Variable  
+calculate_AGE   
+  delayed_departure`;
+
+const convertTocamelCase = strings => {
+  const arrayOfStrings = strings.split('\n');
+  const cammelCasedStrings = [];
+  let maxLength = 0;
+  for (const [key, singleString] of Object.entries(arrayOfStrings)) {
+    const trimmedString = singleString.trimStart().trimEnd().toLowerCase();
+    const indexOfUnderscore = trimmedString.indexOf('_');
+    const cammelCasedString =
+      trimmedString.slice(0, indexOfUnderscore) +
+      trimmedString[indexOfUnderscore + 1].toUpperCase() +
+      trimmedString.slice(indexOfUnderscore + 2);
+    maxLength =
+      cammelCasedString.length > maxLength
+        ? cammelCasedString.length
+        : maxLength;
+    cammelCasedStrings.push(cammelCasedString);
+  }
+  for (const [key, value] of Object.entries(cammelCasedStrings)) {
+    console.log(
+      `${value} `.padEnd(maxLength + 5, ' ') + '✅'.repeat(Number(key) + 1)
+    );
+  }
+  console.log(cammelCasedStrings);
+};
+
+convertTocamelCase(testArray);
