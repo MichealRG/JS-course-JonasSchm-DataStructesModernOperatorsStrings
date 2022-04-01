@@ -226,3 +226,43 @@ const checkMiddleSeat = function (seat) {
 checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
+
+console.log(airline.toUpperCase());
+const passanger = 'jOnAS';
+console.log(
+  passanger[0].toUpperCase() + passanger.slice(1).toLocaleLowerCase()
+);
+const email = 'hello@jonas.io';
+const loginEmail = '   Hello@Jonas.Io \n';
+const lowerTrimmedEmail = loginEmail.toLocaleLowerCase().trim();
+console.log(lowerTrimmedEmail);
+
+//replacing
+const priceUE = '288.33€';
+const priceUS = priceUE.replace('€', '$').replace('.', ',');
+console.log(priceUS);
+const annoucment =
+  'Please passanger come to boarding door 24. Boarding door 24!';
+console.log(annoucment.replace('door', 'gate'));
+console.log(annoucment.replaceAll('door', 'gate'));
+console.log(annoucment.replace(/door/g, 'gate'));
+
+//booleans
+const plane1 = 'Airbus A32@neo';
+console.log(plane1.includes('A32'));
+console.log(plane1.includes('Boeing'));
+console.log(plane1.startsWith('neo'));
+console.log(plane1.endsWith('neo'));
+
+//practice exercises
+const checkBackage = function (items) {
+  const backage = items.toLocaleLowerCase();
+  if (backage.includes('knife') || backage.includes('gun')) {
+    console.log('You are not allowed aboard');
+  } else {
+    console.log('Welcome aboard');
+  }
+};
+checkBackage('I have a laptop, some foof and a pocket knife');
+checkBackage('Socks and camera');
+checkBackage('Got some snacks and a gun for protection');
