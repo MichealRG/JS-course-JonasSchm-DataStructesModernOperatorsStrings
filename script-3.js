@@ -309,26 +309,36 @@ const testArray = `    underscore_case
 calculate_AGE   
   delayed_departure`;
 
+document.querySelector('button').addEventListener('click', () => {
+  const convertMe = document.querySelector('textarea').value;
+  convertTocamelCase(convertMe);
+});
+
 const convertTocamelCase = strings => {
   const arrayOfStrings = strings.split('\n');
   const cammelCasedStrings = [];
   let maxLength = 0;
   for (const [key, singleString] of Object.entries(arrayOfStrings)) {
-    const trimmedString = singleString.trimStart().trimEnd().toLowerCase();
-    const indexOfUnderscore = trimmedString.indexOf('_');
+    const trimmedString = singleString.trim().toLowerCase();
+    // const indexOfUnderscore = trimmedString.indexOf('_');
+    // const cammelCasedString =
+    //   trimmedString.slice(0, indexOfUnderscore) +
+    //   trimmedString[indexOfUnderscore + 1].toUpperCase() +
+    //   trimmedString.slice(indexOfUnderscore + 2);
+    const splitedParts = trimmedString.split('_');
     const cammelCasedString =
-      trimmedString.slice(0, indexOfUnderscore) +
-      trimmedString[indexOfUnderscore + 1].toUpperCase() +
-      trimmedString.slice(indexOfUnderscore + 2);
+      splitedParts[0] +
+      splitedParts[1][0].toUpperCase() +
+      splitedParts[1].slice(1);
     maxLength =
       cammelCasedString.length > maxLength
         ? cammelCasedString.length
         : maxLength;
     cammelCasedStrings.push(cammelCasedString);
   }
-  for (const [key, value] of Object.entries(cammelCasedStrings)) {
+  for (const [key, value] of cammelCasedStrings.entries()) {
     console.log(
-      `${value} `.padEnd(maxLength + 5, ' ') + '✅'.repeat(Number(key) + 1)
+      `${value.padEnd(maxLength + 5)} ${'✅'.repeat(Number(key) + 1)}`
     );
   }
   console.log(cammelCasedStrings);
