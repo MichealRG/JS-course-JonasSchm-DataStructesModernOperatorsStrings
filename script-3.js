@@ -266,3 +266,37 @@ const checkBackage = function (items) {
 checkBackage('I have a laptop, some foof and a pocket knife');
 checkBackage('Socks and camera');
 checkBackage('Got some snacks and a gun for protection');
+
+//split
+console.log(`a+very+nice+string`.split('+'));
+const [firstName, lastName] = 'Jonas Schmit'.split(' ');
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const passanger2 = 'jassica ann smith davis';
+const capitilizeString = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+  for (const n of names) {
+    namesUpper.push(n[0].toUpperCase() + n.slice(1));
+  }
+  console.log(namesUpper.join(' '));
+};
+capitilizeString(passanger2);
+
+//padding
+const message = 'GO to gate 23';
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+const messageShort = 'GO';
+console.log(messageShort.padStart(25, '+'));
+const maskCredictCard = function (number) {
+  const stringNumber = number + '';
+  const last = stringNumber.slice(-4);
+  return last.padStart(stringNumber.length, '*');
+};
+console.log(maskCredictCard('34234234234234'));
+console.log(maskCredictCard(34234234234234));
+
+//repeat
+const message2 = 'Bad weather... All departures delayed...';
+console.log(message2.repeat(5));
